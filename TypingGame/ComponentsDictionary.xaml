@@ -1,0 +1,205 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="BtnBackgroundBrush" EndPoint="0.5,0.076" StartPoint="0.5,0.933">
+        <GradientStop Color="#990F45B3" Offset="0"/>
+        <GradientStop Color="#99689AFF" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ButtonNormalBackgroundFill" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#99FFFFFF" Offset="0"/>
+        <GradientStop Color="#997171C6" Offset="0.9"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BtnMouseOverBackgroundBrush" EndPoint="0,0" StartPoint="0,1">
+        <GradientStop Color="#99274AC5" Offset="0"/>
+        <GradientStop Color="#99689DFF" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BtnPressedBackgroundBrush" EndPoint="-0.002,0.029" StartPoint="0.001,0.982">
+        <GradientStop Color="#990D2D9E" Offset="0.995"/>
+        <GradientStop Color="#992772FC" Offset="0"/>
+    </LinearGradientBrush>
+    
+    <Style x:Key="ButtonFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle SnapsToDevicePixels="true" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="3"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Meiryo"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        <Setter Property="BorderBrush" Value="#FFFFFFFF"/>
+        <Setter Property="Foreground" Value="#FFFFFFFF"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Width" Value="66" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Width="Auto" Height="Auto">
+                        <Rectangle Fill="{DynamicResource BtnBackgroundBrush}" Visibility="Hidden" x:Name="rectangle_bg"  HorizontalAlignment="Stretch"/>
+                        <Rectangle Fill="{DynamicResource BtnBackgroundBrush}" HorizontalAlignment="Stretch" x:Name="rectangle" Width="Auto"/>
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Visibility" TargetName="rectangle" Value="Visible"/>
+                            <Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource BtnMouseOverBackgroundBrush}"/>
+                            <Setter Property="Opacity" TargetName="rectangle" Value="0.8"/>
+                            <Setter Property="Fill" TargetName="rectangle_bg" Value="{DynamicResource ButtonNormalBackgroundFill}"/>
+                            <Setter Property="RadiusX" TargetName="rectangle_bg" Value="2.667"/>
+                            <Setter Property="RadiusY" TargetName="rectangle_bg" Value="2.667"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Visibility" TargetName="rectangle" Value="Visible"/>
+                            <Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource BtnPressedBackgroundBrush}"/>
+                            <Setter Property="Opacity" TargetName="rectangle" Value="0.8"/>
+                            <Setter Property="Fill" TargetName="rectangle_bg" Value="{DynamicResource ButtonNormalBackgroundFill}"/>
+                            <Setter Property="RadiusX" TargetName="rectangle_bg" Value="2.667"/>
+                            <Setter Property="RadiusY" TargetName="rectangle_bg" Value="2.667"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Fill" TargetName="rectangle" Value="#33FFFFFF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ButtonStyleTopBtn" TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="Tempus Sans ITC" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFAF9EE"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Offset)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.431"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Offset)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.97"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFCFBF3"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFDCD576"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFE6DD83"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFE0D510"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Offset)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.991"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Offset)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.013"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFE6D728"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Offset)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Offset)">
+                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.543"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Rectangle x:Name="rectangle" Stroke="Black" RadiusX="8" RadiusY="8">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.572,1.148" StartPoint="0.558,0.034">
+                                    <GradientStop Color="#FFD2C856" Offset="0.857"/>
+                                    <GradientStop Color="White" Offset="0.084"/>
+                                    <GradientStop Color="#FFD2C856" Offset="0.987"/>
+                                    <GradientStop Color="#FFFBFBF3" Offset="0.138"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="Storyboard1_BeginStoryboard1"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="Storyboard1_BeginStoryboard1" Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="Storyboard2_BeginStoryboard"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.EnterActions>
+                            <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="ComboBoxStyle" TargetType="{x:Type ComboBox}">
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TextBoxOutputStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="TransParent"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Foreground" Value="#FF000000"/>
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border SnapsToDevicePixels="true" x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost" FontSize="26" Foreground="#FF000000"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="TransParent"/>
+                <Setter Property="Foreground" Value="#FFACA899"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="TextBoxInputStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="TransParent"/>
+        <Setter Property="Foreground" Value="#FF4B4545"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="宋体"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+    </Style>
+</ResourceDictionary>

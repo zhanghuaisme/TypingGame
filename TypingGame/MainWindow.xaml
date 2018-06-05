@@ -1,0 +1,214 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:MyUC="clr-namespace:TypingGame"
+    x:Class="TypingGame.MainWindow"
+    Title="{DynamicResource KeyWindowTitle}" Height="495" Width="627" mc:Ignorable="d"
+    PreviewKeyDown="Window_PreviewKeyDown"
+    Loaded="Window_Loaded"
+    ResizeMode="CanMinimize" Icon="/TypingGame;component/Image/logo.ico">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StringResourceDictionary.xaml"/>
+                <ResourceDictionary Source="ComponentsDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        	<Storyboard x:Key="Revolving">
+        		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvSetAndSort" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+        			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.147"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.147"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.243"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.451"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0.609"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.724"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0.812"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="0.981"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="1.131"/>
+        		</DoubleAnimationUsingKeyFrames>
+        		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvSetAndSort" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+        			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="210.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="188.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="147.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="116.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="88.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="60.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="31"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="8.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="-2"/>
+        		</DoubleAnimationUsingKeyFrames>
+        		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvSetAndSort" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+        			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.154"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.154"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.233"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.348"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0.506"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.778"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0.9"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="0.957"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="1.123"/>
+        		</DoubleAnimationUsingKeyFrames>
+        		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvSetAndSort" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+        			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="-256"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="-228"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="-176"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-131.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-98.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="-70.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="-45.5"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="-24"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="-6.5"/>
+        		</DoubleAnimationUsingKeyFrames>
+        		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvSetAndSort" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+        			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="45"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="90"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="135"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="180"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="225"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="270"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="315"/>
+        			<SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="360"/>
+        		</DoubleAnimationUsingKeyFrames>
+        	</Storyboard>
+            <Storyboard  x:Key="SbdDown">
+                <DoubleAnimation Storyboard.TargetProperty="Height"
+                          Storyboard.TargetName="CanvTopScreen"
+                          Duration="0:0:0.3"
+                          From="460"
+                          To="10"
+                          />
+            </Storyboard>
+            <Storyboard  x:Key="SbdUp">
+                <DoubleAnimation Storyboard.TargetProperty="Height"
+                          Storyboard.TargetName="CanvTopScreen"
+                          Duration="0:0:0.5"
+                          From="10"
+                          To="460"
+                          />
+            </Storyboard>
+
+            <Storyboard x:Key="SbVanishing">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvCoin" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.8"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0.6"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0.4"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="0.1"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="SbVanishing1">
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="CanvCoin" Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.8"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0.6"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0.4"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="0.1"/>
+                    <SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ResourceDictionary>
+    </Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="CanvSetAndSort">
+			<BeginStoryboard Storyboard="{StaticResource Revolving}"/>
+		</EventTrigger>
+	</Window.Triggers>
+    <Grid x:Name="LayoutRoot">
+        <Image x:Name="ImgBG"  Stretch="Fill" Source="/TypingGame;component/Image/bg.jpg" HorizontalAlignment="Left" Opacity="1" />
+        <Grid x:Name="GridMainScreen" >
+            <Grid x:Name="TopScreen" Panel.ZIndex="2">
+                <Canvas x:Name="CanvTopScreen" Background="#CCFFFFFF" Width="Auto" Height="460" VerticalAlignment="Bottom" Panel.ZIndex="10">
+                    <Button Style="{StaticResource ButtonStyleTopBtn}" Canvas.Left="471" Canvas.Top="116" Height="38" Name="BtnPlay" Width="106" Click="BtnPlay_Click"  Content="{DynamicResource KeyBtnPlay}" MouseEnter="Btn_MouseEnter"></Button>
+                    <Button x:Name="BtnSet" Style="{StaticResource ButtonStyleTopBtn}" FontSize="20" Width="106" Height="38" Content="{StaticResource KeyBtnSet}" Canvas.Left="471" Canvas.Top="166.625" Click="BtnSet_Click" MouseEnter="Btn_MouseEnter"/>
+                    <Button x:Name="BtnSort" Style="{StaticResource ButtonStyleTopBtn}" FontSize="20" Width="106" Height="38" Content="{StaticResource KeyBtnSort}" Canvas.Left="471" Canvas.Top="216.625" Click="BtnSort_Click" MouseEnter="Btn_MouseEnter"/>
+                    <Canvas x:Name="CanvSetAndSort" Width="331" Height="313" Canvas.Top="63" Canvas.Left="121" RenderTransformOrigin="0.5,0.5">
+                    	<Canvas.RenderTransform>
+                    		<TransformGroup>
+                    			<ScaleTransform/>
+                    			<SkewTransform/>
+                    			<RotateTransform/>
+                    			<TranslateTransform/>
+                    		</TransformGroup>
+                    	</Canvas.RenderTransform>
+                    	<Canvas x:Name="CanvSet" Width="323" Height="297" Canvas.Left="8" Canvas.Top="8">
+                    		<Label Content="{StaticResource KeyLblName}" FontSize="16" FontFamily="Tempus Sans ITC" Padding="5" Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Canvas.Left="4" Canvas.Top="11.127" Panel.ZIndex="11"/>
+                    		<TextBox x:Name="TxtName" Style="{StaticResource TextBoxInputStyle}" Width="168" Height="25" TextWrapping="Wrap" Canvas.Left="62" Canvas.Top="11.127" 
+                                     MaxLength="10"
+                    			     LostFocus="TxtName_LostFocus"
+                    			     GotFocus="TxtName_GotFocus" Canvas.ZIndex="11"/>
+                    		<Label Name="LblLevelTop" Width="41" Height="27" Content="{StaticResource KeyLblLevelTop}" Canvas.Left="21" Canvas.Top="42" FontFamily="Tempus Sans ITC" FontSize="16"/>
+                            <ComboBox Name="CmbLevelTopCav" Width="168" Height="28.873" Canvas.Left="62" Canvas.Top="40.127" Background="Transparent">
+                                <ComboBoxItem Name="CmbIOne2"  Content="{DynamicResource KeyCmbIOne}" />
+                                <ComboBoxItem Name="CmbITwo2" Content="{DynamicResource KeyCmbITwo}" />
+                                <ComboBoxItem Name="CmbIThree2" Content="{DynamicResource KeyCmbIThree}" />
+                                <ComboBoxItem Name="CmbIFour2" Content="{DynamicResource KeyCmbIFour}" />
+                                <ComboBoxItem Name="CmbIFive2" Content="{DynamicResource KeyCmbIFive}" />
+                                <ComboBoxItem Name="CmbISix2" Content="{DynamicResource KeyCmbISix}" />
+                                <ComboBoxItem Name="CmbISeven2" Content="{DynamicResource KeyCmbISeven}" />
+                                <ComboBoxItem Name="CmbIEight2" Content="{DynamicResource KeyCmbIEight}" />
+                                <ComboBoxItem Name="CmbINine2" Content="{DynamicResource KeyCmbINine}" />
+                                <ComboBoxItem Name="CmbITen2" Content="{DynamicResource KeyCmbITen}" />
+                            </ComboBox>
+                            <CheckBox x:Name="CkbSilent" Content="{StaticResource KeyCkbSilent}" Canvas.Left="251" Canvas.Top="53" FontSize="16" Checked="CkbSilent_Checked" Unchecked="CkbSilent_Unchecked" FontFamily="Tempus Sans ITC"/>
+                            <TextBlock Canvas.Left="38" Canvas.Top="90" Text="{StaticResource KeyTxtBlockIdea}" TextWrapping="Wrap" FontSize="16" Width="222" Margin="0,-3,0,0" FontFamily="Tempus Sans ITC"/>
+                        </Canvas>
+                    	<Canvas Name="CanvSort" Width="331" Height="297" Canvas.Top="6" Visibility="Collapsed">
+                    		<ListView x:Name="LvScore" Width="331" Height="238" Canvas.Top="51" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" Background="#7FEDF46B" Canvas.ZIndex="11" >
+                    			<ListView.View>
+                    				<GridView>
+                                        <GridViewColumn Header="{StaticResource KeyColumnNo}" DisplayMemberBinding="{Binding No}" x:Name="No"/>
+                    					<GridViewColumn Header="{StaticResource KeyColumnLevel}" DisplayMemberBinding="{Binding Level}" x:Name="Level"/>
+                    					<GridViewColumn Header="{StaticResource KeyColumnUserName}" DisplayMemberBinding="{Binding UserName}" x:Name="UserName"/>
+                    					<GridViewColumn Header="{StaticResource KeyColumnScore}" DisplayMemberBinding="{Binding Score}" x:Name="Score"/>
+                                        <GridViewColumn Header="{StaticResource KeyColumnTatolScore}" DisplayMemberBinding="{Binding TatolScore}" x:Name="TatolScore"/>
+                    					<GridViewColumn Header="{StaticResource KeyColumnTime}" DisplayMemberBinding="{Binding PracticeTime}" x:Name="PracticeTime"/>
+                    				</GridView>
+                    			</ListView.View>
+
+                    		</ListView>
+                    		<Label Name="LblSort" Width="85" Height="43" Content="{StaticResource KeyLblSort}" FontFamily="Tempus Sans ITC" FontSize="24" Canvas.Top="8" Canvas.Left="123"/>
+                    	</Canvas>
+                    </Canvas>
+                </Canvas>
+            </Grid>
+            <Grid Name="GridElementAll" IsEnabled="False" Panel.ZIndex="1">
+                <Button Style="{DynamicResource BtnStyle}" Height="23" x:Name="BtnStart" Content="{DynamicResource KeyBtnStart}" Click="BtnStart_Click" Margin="256.5,7,296.5,0" VerticalAlignment="Top"/>
+                <Button Style="{DynamicResource BtnStyle}" Height="23" HorizontalAlignment="Left"  x:Name="BtnReset" Content="{DynamicResource KeyBtnReset}" Click="BtnReset_Click" Margin="336,8,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+                    
+                <Canvas Name="CanvasMain" Margin="4.5,35,14.5,8" Width="600" Height="418" Panel.ZIndex="1">
+                    <MyUC:MyMessage x:Name="MsgShow" Panel.ZIndex="1" Visibility="Collapsed"></MyUC:MyMessage>
+                    <Button Style="{DynamicResource BtnStyle}" Canvas.Left="512" Canvas.Top="387" Height="23" Name="BtnBack" Width="75" Content="{StaticResource KeyBtnBack}" Click="BtnBack_Click"></Button>
+                    <Canvas x:Name="CanvCoin" Width="58.5" Height="36">
+                    	<!--<Image x:Name="ImgCoin" >
+						
+					</Image>-->
+                    	<Label x:Name="LblCoin" Width="Auto" Height="32" Content="+" Canvas.Left="21" FontSize="21" Foreground="#FFF3D111"/>
+                    </Canvas>
+                </Canvas>
+                
+                <TextBox Style="{StaticResource TextBoxOutputStyle}" HorizontalAlignment="Right"  Margin="0,3,55,0" VerticalAlignment="Top" Width="46" Height="34"  Name="TxtScore" Text="0"  Background="Transparent" TextAlignment="Right" BorderThickness="0"/>
+                <Label HorizontalAlignment="Right" Height="34" Margin="0,0,40,0" Name="LblDivid" VerticalAlignment="Top" FontSize="30" Width="25">/</Label>
+                <Label HorizontalAlignment="Right" FontSize="26" Height="34" Margin="0,1,5,0" Name="LblCount" VerticalAlignment="Top" Width="49">100</Label>
+                <Slider Height="21" Margin="0,8,99,0" Name="SldGeneral" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"  Maximum="1" IsEnabled="True" TickFrequency="1" LargeChange="0.01" />
+                <Label Height="21" HorizontalAlignment="Left" Margin="4.5,8,0,0" Name="LblLevel" VerticalAlignment="Top" Width="56" Content="{DynamicResource KeyLblLevel}" Background="White" FontSize="10.667"></Label>
+                <ComboBox Style="{StaticResource ComboBoxStyle}" Height="23" HorizontalAlignment="Left" Margin="59,7,0,0" Name="CmbLevel" VerticalAlignment="Top" Width="120" >
+                    <ComboBoxItem Name="CmbIOne"  Content="{DynamicResource KeyCmbIOne}" />
+                    <ComboBoxItem Name="CmbITwo" Content="{DynamicResource KeyCmbITwo}" />
+                    <ComboBoxItem Name="CmbIThree" Content="{DynamicResource KeyCmbIThree}" />
+                    <ComboBoxItem Name="CmbIFour" Content="{DynamicResource KeyCmbIFour}" />
+                    <ComboBoxItem Name="CmbIFive" Content="{DynamicResource KeyCmbIFive}" />
+                    <ComboBoxItem Name="CmbISix" Content="{DynamicResource KeyCmbISix}" />
+                    <ComboBoxItem Name="CmbISeven" Content="{DynamicResource KeyCmbISeven}" />
+                    <ComboBoxItem Name="CmbIEight" Content="{DynamicResource KeyCmbIEight}" />
+                    <ComboBoxItem Name="CmbINine" Content="{DynamicResource KeyCmbINine}" />
+                    <ComboBoxItem Name="CmbITen" Content="{DynamicResource KeyCmbITen}" />
+                </ComboBox>
+            </Grid>
+        </Grid>
+        
+        
+    </Grid>
+</Window>
