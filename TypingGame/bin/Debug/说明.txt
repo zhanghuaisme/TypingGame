@@ -1,2 +1,0 @@
-如果是xp系统，需要安装有.net FrameWork 3.5 sp1
-如果是vista或者win7系统可直接运行双击TypingGame.exe运行
