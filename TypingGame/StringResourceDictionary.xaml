@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    <!--窗体控件-->
+    <System:String x:Key="KeyWindowTitle">指法练习小游戏，天地归心作品</System:String>
+    <System:String x:Key="KeyBtnStart">开始</System:String>
+    <System:String x:Key="KeyBtnPause">暂停</System:String>
+    <System:String x:Key="KeyBtnReset">重来</System:String>
+    <System:String x:Key="KeySldGeneral">产生速度</System:String>
+    <System:String x:Key="KeyLblLevel">级别</System:String>
+    <System:String x:Key="KeyBtnBack">后退</System:String>
+    
+    <System:String x:Key="KeyBtnPlay">Play</System:String>
+    <System:String x:Key="KeyBtnSet">设置</System:String>
+    <System:String x:Key="KeyBtnSort">排名</System:String>
+    <System:String x:Key="KeyLblName">用户名</System:String>
+    <System:String x:Key="KeyLblSort">排行榜</System:String>
+    <System:String x:Key="KeyLblLevelTop">级别</System:String>
+    <System:String x:Key="KeyCkbSilent">静音</System:String>
+    <!--游戏开始之后，按空格键暂停-->
+    <System:String x:Key="KeyTxtBlockIdea">When the game is running, you can press space for suspension.</System:String>
+    
+    <System:String x:Key="KeyCmbIOne">一级</System:String>
+    <System:String x:Key="KeyCmbITwo">二级</System:String>
+    <System:String x:Key="KeyCmbIThree">三级</System:String>
+    <System:String x:Key="KeyCmbIFour">四级</System:String>
+    <System:String x:Key="KeyCmbIFive">五级</System:String>
+    <System:String x:Key="KeyCmbISix">六级</System:String>
+    <System:String x:Key="KeyCmbISeven">七级</System:String>
+    <System:String x:Key="KeyCmbIEight">八级</System:String>
+    <System:String x:Key="KeyCmbINine">九级</System:String>
+    <System:String x:Key="KeyCmbITen">十级</System:String>
+    
+    <System:String x:Key="KeyColumnNo">排名</System:String>
+    <System:String x:Key="KeyColumnLevel">级别</System:String>
+    <System:String x:Key="KeyColumnUserName">姓名</System:String>
+    <System:String x:Key="KeyColumnScore">成绩</System:String>
+    <System:String x:Key="KeyColumnTatolScore">得分</System:String>
+    <System:String x:Key="KeyColumnTime">时间</System:String>
+</ResourceDictionary>
